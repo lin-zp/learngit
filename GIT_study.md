@@ -87,6 +87,16 @@ $git reset HEAD <file>
 但文件已经add过，但仍未提交，想撤销add，可使用此指令，将暂存区的内容重新放回工作区。
 
 $rm <file>
+使用此指令删除工作区中的file文件，可是用$git checkout -- <file>指令将版本库中的file文件返回，进行撤销删除动作。
 
+$git rm <file>
+使用此指令删除版本库中的file文件
+```
+
+## 远程仓库
+
+```
+创建SSH KEY
+使用指令： $ssh-keygen -t rsa —C "your email" 创建本地秘钥，根据提示在文件目录中找到id_rsa.pub，在github中添加秘钥。
 ```
 
