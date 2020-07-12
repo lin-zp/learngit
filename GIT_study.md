@@ -116,5 +116,38 @@ origin是远程库的名字，也可以换成其他，一般不换
 
 在Git中，master为主分支，HEAD为指向当前分支的指针。
 
-![image-20200712215540972](C:\Users\林帅哥\AppData\Roaming\Typora\typora-user-images\image-20200712215540972.png)
+当创建新的分支如dev时，dev指向与master相同的提交，HEAD指向dev。此时对工作区进行修改，提交后dev分支发生改变，master分支不变，因此在dev分支进行工作不会影响master分支，dev分支工作完成后，只需将dev分支与master分支合并即可。
+
+创建并切换到分支：
+
+```
+1.$git checkout -b dev(=$git branch dev+$git checkout dev)
+2.$git switch -c dev（推荐）
+```
+
+查看当前分支：
+
+```
+$git branch
+```
+
+切换分支：
+
+```
+1.$git checkout master/dev
+2.$git switch master/dev(推荐)
+```
+
+合并分支：
+
+```
+$git merge dev(将指定分支合并到当前分支)
+此处为在master分支下将dev分支合并到master分支
+```
+
+删除分支：
+
+```
+$git branch -d dev
+```
 
