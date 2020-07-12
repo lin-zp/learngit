@@ -68,8 +68,25 @@ index d8036c1..a5fc558 100644
 
 ```
 $git log
+版本控制系统的日志，包含提交id，提交者，提交日期，提交信息。
+使用指令：$git log --pretty=oneline可查看精简的日志信息。
+
 $git reset --hard HEAD^
+版本回退指令，HEAD指针指向当前版本，HEAD+^*n表示退回前n个版本，也可将——hard后的HEAD内容改为提交id的前几位，退回指定id版本，提交id可用 $git log查询。
+
 $cat readme.md
+使用cat指令可查看cat后所带文件的内容
+
 $git reflog
+使用此指令查看git记录的用户操作记录，可用来查询提交id
+
+$git checkout -- <file>
+使用此指令将撤销工作区的修改（未添加到暂存区或已提交的情况下），既丢弃工作区的修改，返回至最近一次add/commit的状态。
+
+$git reset HEAD <file>
+但文件已经add过，但仍未提交，想撤销add，可使用此指令，将暂存区的内容重新放回工作区。
+
+$rm <file>
+
 ```
 
