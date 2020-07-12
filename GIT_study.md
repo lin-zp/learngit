@@ -1,4 +1,4 @@
-# git使用
+# git使用（廖雪峰教程笔记）
 
 ## 安装完git之后需要两条命令：
 
@@ -100,7 +100,7 @@ $git rm <file>
 使用指令： $ssh-keygen -t rsa —C "your email" 创建本地秘钥，根据提示在文件目录中找到id_rsa.pub，在github中添加秘钥。
 ```
 
-### 添加远程库
+### 添加/克隆远程库
 
 ```
 已有本地库，在github创建相同名字远程库，使用指令：$git remote add origin <git@server-name:path/repo-name.git>关联远程库
@@ -109,4 +109,12 @@ origin是远程库的名字，也可以换成其他，一般不换
 关联成功后，可使用指令：$git push -u origin master 将本地库的所有内容推送到远程库（第一次推送，由于远程库是空的，使用-u参数，git把本地master分支推送到远程master分支，同时将本地和远程的master分支关联起来，后续推送与拉取可简化指令）
 后续使用：$git push origin master进行推送 
 ```
+
+## 分支管理
+
+### 创建与合并
+
+在Git中，master为主分支，HEAD为指向当前分支的指针。
+
+![image-20200712215540972](C:\Users\林帅哥\AppData\Roaming\Typora\typora-user-images\image-20200712215540972.png)
 
