@@ -1,4 +1,3 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
+在此文件下放置git学习笔记并进行git实操
 
-Creating a new branch is quick.
+在master上的修改
