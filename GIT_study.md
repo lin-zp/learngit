@@ -151,3 +151,20 @@ $git merge dev(将指定分支合并到当前分支)
 $git branch -d dev
 ```
 
+```
+###### WATING TO DATA...(INTERRUPT TO ABORT)
+
+出现此情况按ctrl+c可解决
+```
+
+分支冲突
+
+```
+创建新的temp分支
+在temp分支上对文件进行修改并提交
+跳回master分支在同样的文件上进行修改并提交
+合并分支时会发生分支冲突
+可用git status和cat <文件名>查看文件冲突，然后对文件进行修改并提交，提交后会合并分支
+使用指令：$git log --graph --pretty=oneline --abbrev-commit查看分支合并详情
+```
+
