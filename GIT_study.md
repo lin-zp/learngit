@@ -1,4 +1,4 @@
-# git使用
+# git使用（廖雪峰教程笔记）
 
 ## 安装完git之后需要两条命令：
 
@@ -68,8 +68,86 @@ index d8036c1..a5fc558 100644
 
 ```
 $git log
+版本控制系统的日志，包含提交id，提交者，提交日期，提交信息。
+使用指令：$git log --pretty=oneline可查看精简的日志信息。
+
 $git reset --hard HEAD^
+版本回退指令，HEAD指针指向当前版本，HEAD+^*n表示退回前n个版本，也可将——hard后的HEAD内容改为提交id的前几位，退回指定id版本，提交id可用 $git log查询。
+
 $cat readme.md
+使用cat指令可查看cat后所带文件的内容
+
 $git reflog
+使用此指令查看git记录的用户操作记录，可用来查询提交id
+
+$git checkout -- <file>
+使用此指令将撤销工作区的修改（未添加到暂存区或已提交的情况下），既丢弃工作区的修改，返回至最近一次add/commit的状态。
+
+$git reset HEAD <file>
+但文件已经add过，但仍未提交，想撤销add，可使用此指令，将暂存区的内容重新放回工作区。
+
+$rm <file>
+使用此指令删除工作区中的file文件，可是用$git checkout -- <file>指令将版本库中的file文件返回，进行撤销删除动作。
+
+$git rm <file>
+使用此指令删除版本库中的file文件
+```
+
+## 远程仓库
+
+```
+创建SSH KEY
+使用指令： $ssh-keygen -t rsa —C "your email" 创建本地秘钥，根据提示在文件目录中找到id_rsa.pub，在github中添加秘钥。
+```
+
+### 添加/克隆远程库
+
+```
+已有本地库，在github创建相同名字远程库，使用指令：$git remote add origin <git@server-name:path/repo-name.git>关联远程库
+origin是远程库的名字，也可以换成其他，一般不换
+先有远程库，使用指令：$git clone <git@server-name:path/repo-name.git>在本地克隆新仓库
+关联成功后，可使用指令：$git push -u origin master 将本地库的所有内容推送到远程库（第一次推送，由于远程库是空的，使用-u参数，git把本地master分支推送到远程master分支，同时将本地和远程的master分支关联起来，后续推送与拉取可简化指令）
+后续使用：$git push origin master进行推送 
+```
+
+## 分支管理
+
+### 创建与合并
+
+在Git中，master为主分支，HEAD为指向当前分支的指针。
+
+当创建新的分支如dev时，dev指向与master相同的提交，HEAD指向dev。此时对工作区进行修改，提交后dev分支发生改变，master分支不变，因此在dev分支进行工作不会影响master分支，dev分支工作完成后，只需将dev分支与master分支合并即可。
+
+创建并切换到分支：
+
+```
+1.$git checkout -b dev(=$git branch dev+$git checkout dev)
+2.$git switch -c dev（推荐）
+```
+
+查看当前分支：
+
+```
+$git branch
+```
+
+切换分支：
+
+```
+1.$git checkout master/dev
+2.$git switch master/dev(推荐)
+```
+
+合并分支：
+
+```
+$git merge dev(将指定分支合并到当前分支)
+此处为在master分支下将dev分支合并到master分支
+```
+
+删除分支：
+
+```
+$git branch -d dev
 ```
 
